@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vellox/Screens/auth.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,14 +17,7 @@ class MyApp extends StatelessWidget {
           seedColor: Color.fromARGB(255, 63, 17, 177),
         ),
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text(
-            'Hello, World!',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
+      home: AuthScreen(),
     );
   }
 }
