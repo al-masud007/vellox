@@ -8,7 +8,19 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  final _form = GlobalKey<FormState>();
   var _isLogin = true;
+  var _userEmail = '';
+  var _userPassword = '';
+
+  void _submit() {
+    final isValid = _form.currentState!.validate();
+    if (isValid) {
+      _form.currentState!.save();
+      print('Email: $_userEmail, Password: $_userPassword');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,6 +45,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: Form(
+                      key: _form,
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -43,16 +56,30 @@ class _AuthScreenState extends State<AuthScreen> {
                             keyboardType: TextInputType.emailAddress,
                             textCapitalization: TextCapitalization.none,
                             autocorrect: false,
+                            validator: (value) =>
+                                value!.isEmpty || !value.contains('@')
+                                ? 'Please enter a valid email address.'
+                                : null,
+                            onSaved: (value) {
+                              _userEmail = value!;
+                            },
                           ),
                           TextFormField(
                             decoration: const InputDecoration(
                               labelText: 'Password',
                             ),
                             obscureText: true,
+                            validator: (value) =>
+                                value!.isEmpty || value.length < 6
+                                ? 'Password must be at least 6 characters long.'
+                                : null,
+                            onSaved: (value) {
+                              _userPassword = value!;
+                            },
                           ),
                           const SizedBox(height: 12),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: _submit,
                             child: Text(_isLogin ? 'Login' : 'SignUp '),
                           ),
                           TextButton(
