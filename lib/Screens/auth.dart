@@ -16,27 +16,49 @@ class _AuthScreenState extends State<AuthScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'Welcome to Vellox',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
+              Container(
+                margin: const EdgeInsets.only(
+                  top: 30,
+                  bottom: 20,
+                  left: 20,
+                  right: 20,
                 ),
+                width: 200,
+                child: Image.asset('assets/images/chat.png'),
               ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle login action
-                },
-                child: const Text('Login'),
-              ),
-              const SizedBox(height: 10),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle signup action
-                },
-                child: const Text('Sign Up'),
+              Card(
+                margin: const EdgeInsets.all(20),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Form(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              labelText: 'Email Address',
+                            ),
+                            keyboardType: TextInputType.emailAddress,
+                            textCapitalization: TextCapitalization.none,
+                            autocorrect: false,
+                          ),
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              labelText: 'Password',
+                            ),
+                            obscureText: true,
+                          ),
+                          const SizedBox(height: 12),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: const Text('Login'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
