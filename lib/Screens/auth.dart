@@ -16,7 +16,7 @@ class _AuthScreenState extends State<AuthScreen> {
   var _userEmail = '';
   var _userPassword = '';
 
-  void _submit() {
+  void _submit() async {
     final isValid = _form.currentState!.validate();
     if (!isValid) {
       return;
@@ -25,19 +25,19 @@ class _AuthScreenState extends State<AuthScreen> {
     if (_isLogin) {
     } else {
       try {
-        final userCredential = _firebase.createUserWithEmailAndPassword(
+        final userCredential = await _firebase.createUserWithEmailAndPassword(
           email: _userEmail,
           password: _userPassword,
         );
-        print(userCredential);
+        // print(userCredential);
       } on FirebaseAuthException catch (e) {
         if (e.code == 'email-already-in-use') {
-        } else {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(e.message ?? 'Authentication failed.')),
-          );
+          // Handle the case where the email is already in use
         }
+        ScaffoldMessenger.of(context).clearSnackBars();
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(e.message ?? 'Authentication failed.')),
+        );
       }
     }
   }
