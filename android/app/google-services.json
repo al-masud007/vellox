@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "353414100927",
+    "project_id": "vellox-mobile",
+    "storage_bucket": "vellox-mobile.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353414100927:android:f79d2ed47dae209defd30a",
+        "android_client_info": {
+          "package_name": "com.example.vellox"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5pYA9AFCdh_0ZLhHnVSXdpi2EDXcppiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"vellox-mobile","appId":"1:353414100927:android:f79d2ed47dae209defd30a","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"vellox-mobile","configurations":{"android":"1:353414100927:android:f79d2ed47dae209defd30a","ios":"1:353414100927:ios:5999f03ddc757cb8efd30a"}}}}}}
